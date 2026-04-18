@@ -1,11 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700;800&family=Pacifico&display=swap');
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #222;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #ffffff;
     --foreground: #ededed;
   }
 }
@@ -24,9 +26,9 @@ body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
+  font-family: 'Quicksand', Arial, Helvetica, sans-serif;
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
