@@ -1,33 +1,72 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaw } from '@fortawesome/free-solid-svg-icons';
 import styles from "../styles/Hero.module.css";
 
 export default function Hero() {
+  const goToAgenda = () => {
+    const agenda = document.getElementById("agenda");
+    if (agenda) agenda.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section className={styles.hero} id="hero">
       <div className={styles.heroContent}>
-        <div className={styles.heroTextBlock}>
-          <h1 className={styles.heroTitle}>
-            Bienvenidos a <span>Patitas</span>
-          </h1>
-          <h2 className={styles.heroSubtitle}>
-            Spa y bienestar para tu mascota<br />
-            Para consentir a quienes más amas. Aquí cada peludito vive una experiencia de tranquilidad, cariño y bienestar total.<br />
-            <span className={styles.heroAccent}>
-              Relax, amor y cuidado premium
-            </span>
-          </h2>
-          <button
-            className={styles.ctaBtn}
-            onClick={() => {
-              const agenda = document.getElementById("agenda");
-              if (agenda) agenda.scrollIntoView({ behavior: "smooth" });
-            }}
+        <motion.div
+          className={styles.heroTextBlock}
+          initial={{ opacity: 0, y: 34 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        >
+          <motion.h1
+            className={styles.heroTitle}
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.08 }}
           >
-            <FontAwesomeIcon icon={faPaw} style={{marginRight: '0.7rem', fontSize: '1.2em'}} />
-            Agenda tu cita
-          </button>
-        </div>
+            Bienvenidos a <span>Patitas</span>
+          </motion.h1>
+
+          <motion.p
+            className={styles.heroSubtitle}
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.18 }}
+          >
+            Spa y bienestar para tu mascota.
+            <br />
+            Para consentir a quienes más amas. Aquí cada peludito vive una experiencia
+            de tranquilidad, cariño y bienestar total.
+          </motion.p>
+
+          <motion.p
+            className={styles.heroAccent}
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.28 }}
+          >
+            Relax, amor y cuidado premium
+          </motion.p>
+
+          <motion.button
+            type="button"
+            className={styles.ctaBtn}
+            onClick={goToAgenda}
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.38 }}
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: 0.985 }}
+          >
+            <span className={styles.ctaText}>Agenda tu cita</span>
+
+            <span className={styles.ctaIconWrap}>
+              <FontAwesomeIcon icon={faPaw} className={styles.ctaIcon} />
+            </span>
+          </motion.button>
+        </motion.div>
       </div>
     </section>
   );
