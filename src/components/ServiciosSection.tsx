@@ -82,11 +82,11 @@ export default function ServiciosSection() {
               whileHover={{ y: -6 }}
             >
               <div className={styles.cardTop}>
-                <span className={`${styles.badge} ${styles[`badge${service.tone.charAt(0).toUpperCase() + service.tone.slice(1)}`]}`}>
+                <span className={styles.badge}>
                   {service.badge}
                 </span>
 
-                <div className={`${styles.iconWrap} ${styles[`iconWrap${service.tone.charAt(0).toUpperCase() + service.tone.slice(1)}`]}`}>
+                <div className={styles.iconWrap}>
                   <FontAwesomeIcon icon={service.icon} className={styles.icon} />
                 </div>
               </div>
@@ -98,7 +98,7 @@ export default function ServiciosSection() {
 
               <button
                 type="button"
-                className={`${styles.ctaBtn} ${styles[`ctaBtn${service.tone.charAt(0).toUpperCase() + service.tone.slice(1)}`]}`}
+                className={styles.ctaBtn}
                 onClick={goToAgenda}
               >
                 <span className={styles.ctaText}>{service.buttonText}</span>

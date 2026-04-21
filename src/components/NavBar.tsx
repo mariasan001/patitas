@@ -104,10 +104,10 @@ export default function NavBar() {
             >
               <div className={styles.logo}>
                 <Image
-                  src="/img/logo.png"
+                  src="/img/logo_patitas.png"
                   alt="Patitas Logo"
-                  width={32}
-                  height={32}
+                  width={92}
+                  height={62}
                   priority
                 />
               </div>

@@ -31,7 +31,7 @@ export default function PromesaAgendaSection() {
       >
         <div className={styles.imageCard}>
           <Image
-            src="/img/img_1.png"
+            src="/img/img_2.png"
             alt="Mascota recibiendo cuidados en Patitas"
             fill
             className={styles.image}

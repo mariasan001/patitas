@@ -1,3 +1,8 @@
+.navbarMotion {
+  position: relative;
+  z-index: 100;
+}
+
 .navbar {
   position: fixed;
   top: 1.45rem;
@@ -13,11 +18,11 @@
   padding: 0.65rem 1.1rem;
   border-radius: 999px;
 
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: var(--surface-glass);
+  border: 1px solid rgba(67, 41, 24, 0.08);
   box-shadow:
-    0 10px 32px rgba(42, 44, 27, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.88);
+    0 10px 32px rgba(67, 41, 24, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
 
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -33,10 +38,10 @@
 .navbarScrolled {
   top: 0.9rem;
   min-height: 68px;
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--surface-glass-strong);
   box-shadow:
-    0 12px 28px rgba(42, 44, 27, 0.14),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    0 12px 28px rgba(67, 41, 24, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.84);
 }
 
 .leftSide {
@@ -67,13 +72,6 @@
 }
 
 .logo {
-  width: 46px;
-  height: 46px;
-  background: #fff;
-  border-radius: 50%;
-  box-shadow:
-    0 4px 10px rgba(0, 0, 0, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
 
   display: flex;
   align-items: center;
@@ -85,8 +83,8 @@
 .logoWrapper:hover .logo {
   transform: translateY(-1px) scale(1.03);
   box-shadow:
-    0 8px 18px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    0 8px 18px rgba(67, 41, 24, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.82);
 }
 
 .menuDesktop {
@@ -108,7 +106,7 @@
   position: relative;
   border: none;
   background: transparent;
-  color: #5a4936;
+  color: var(--foreground);
   cursor: pointer;
   border-radius: 999px;
   padding: 0.85rem 1rem;
@@ -121,7 +119,7 @@
 }
 
 .menuLink:hover {
-  color: #4d5f34;
+  color: var(--color-sage);
   transform: translateY(-1px);
 }
 
@@ -132,17 +130,17 @@
 }
 
 .menuLinkActive {
-  color: #4d5f34;
+  color: var(--color-brown);
 }
 
 .activePill {
   position: absolute;
   inset: 0;
   border-radius: 999px;
-  background: rgba(211, 230, 187, 0.95);
+  background: rgba(221, 213, 186, 0.92);
   box-shadow:
-    0 6px 14px rgba(112, 128, 78, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.66);
+    0 6px 14px rgba(122, 103, 76, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.68);
   z-index: 1;
 }
 
@@ -153,8 +151,8 @@
   justify-content: space-between;
   gap: 0.55rem;
 
-  background: #d3e6bb;
-  color: #4f5f33;
+  background: var(--color-almond);
+  color: var(--color-brown);
   text-decoration: none;
   border-radius: 999px;
   border: none;
@@ -164,8 +162,8 @@
 
   font-weight: 700;
   box-shadow:
-    0 8px 18px rgba(87, 101, 56, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+    0 8px 18px rgba(122, 103, 76, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.46);
 
   transition:
     transform 0.22s ease,
@@ -175,11 +173,11 @@
 
 .ctaBtn:hover,
 .ctaBtnMobile:hover {
-  background: #dcedc4;
+  background: var(--color-cream);
   transform: translateY(-2px);
   box-shadow:
-    0 12px 22px rgba(87, 101, 56, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+    0 12px 22px rgba(122, 103, 76, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.58);
 }
 
 .ctaText {
@@ -190,13 +188,13 @@
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow:
-    0 3px 8px rgba(0, 0, 0, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.82);
+    0 3px 8px rgba(67, 41, 24, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.76);
 }
 
 .menuIcon {
@@ -205,8 +203,8 @@
   height: 42px;
   border: none;
   border-radius: 50%;
-  background: #f4f2eb;
-  color: #4e3f2e;
+  background: rgba(221, 213, 186, 0.48);
+  color: var(--color-brown);
   cursor: pointer;
   align-items: center;
   justify-content: center;
@@ -218,15 +216,15 @@
 }
 
 .menuIcon:hover {
-  background: #ece7da;
-  color: #4d5f34;
+  background: rgba(208, 169, 132, 0.26);
+  color: var(--color-sage);
   transform: translateY(-1px);
 }
 
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(18, 18, 18, 0.22);
+  background: rgba(67, 41, 24, 0.2);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
   z-index: 120;
@@ -239,9 +237,9 @@
   right: 0;
   width: min(86vw, 360px);
   height: 100vh;
-  background: rgba(255, 255, 255, 0.98);
-  border-left: 1px solid rgba(255, 255, 255, 0.7);
-  box-shadow: -12px 0 28px rgba(22, 22, 22, 0.12);
+  background: rgba(248, 242, 235, 0.98);
+  border-left: 1px solid rgba(67, 41, 24, 0.08);
+  box-shadow: -12px 0 28px rgba(67, 41, 24, 0.12);
   padding: 1rem;
   z-index: 130;
 
@@ -267,20 +265,20 @@
 .mobileLogo {
   width: 42px;
   height: 42px;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.88);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow:
-    0 4px 10px rgba(0, 0, 0, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.82);
+    0 4px 10px rgba(67, 41, 24, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.78);
 }
 
 .mobileBrandText {
   font-size: 1rem;
   font-weight: 700;
-  color: #4e3f2e;
+  color: var(--color-brown);
 }
 
 .mobileCloseBtn {
@@ -288,8 +286,8 @@
   height: 42px;
   border: none;
   border-radius: 50%;
-  background: #f4f2eb;
-  color: #4e3f2e;
+  background: rgba(221, 213, 186, 0.48);
+  color: var(--color-brown);
   cursor: pointer;
   transition:
     background 0.22s ease,
@@ -297,7 +295,7 @@
 }
 
 .mobileCloseBtn:hover {
-  background: #ece7da;
+  background: rgba(208, 169, 132, 0.26);
   transform: rotate(90deg);
 }
 
@@ -315,7 +313,7 @@
   border: none;
   background: transparent;
   text-align: left;
-  color: #5a4936;
+  color: var(--foreground);
   font-size: 1rem;
   font-weight: 600;
   padding: 0.95rem 1rem;
@@ -328,16 +326,16 @@
 }
 
 .mobileLink:hover {
-  background: rgba(211, 230, 187, 0.5);
-  color: #4d5f34;
+  background: rgba(221, 213, 186, 0.5);
+  color: var(--color-sage);
   transform: translateX(4px);
 }
 
 .mobileLinkActive {
-  background: rgba(211, 230, 187, 0.9);
-  color: #4d5f34;
+  background: rgba(208, 169, 132, 0.24);
+  color: var(--color-brown);
   box-shadow:
-    0 6px 14px rgba(112, 128, 78, 0.1),
+    0 6px 14px rgba(122, 103, 76, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.65);
 }
 

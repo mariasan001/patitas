@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import styles from "../styles/Home.module.css";
 import NavBar from '../components/NavBar';
 import Hero from '../components/Hero';
@@ -23,7 +24,15 @@ export default function Home() {
         <footer className={styles.footer}>
           <div className={styles.footerInner}>
             <div className={styles.footerTop}>
-              <span className={styles.footerKicker}>Patitas</span>
+              <div className={styles.footerLogoWrap}>
+                <Image
+                  src="/img/logo_patitas.png"
+                  alt="Patitas"
+                  width={110}
+                  height={56}
+                  className={styles.footerKickerLogo}
+                />
+              </div>
 
               <h2 className={styles.footerTitle}>
                 Tu mascota merece una experiencia
