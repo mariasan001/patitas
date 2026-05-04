@@ -4,7 +4,7 @@
   height: clamp(720px, 86vh, 920px);
   max-height: 920px;
   margin: 0 0 3.5rem 0;
-  background: url('/img/hero_fondo1.png') center center / cover no-repeat;
+  background: url('/img/hero_web_sin_fondo.png') center center / cover no-repeat;
   position: relative;
   display: flex;
   align-items: center;
@@ -46,14 +46,11 @@
   line-height: 0.98;
   font-weight: 800;
   letter-spacing: -0.04em;
-  color: var(--color-ivory);
-  text-shadow:
-    0 2px 10px rgba(67, 41, 24, 0.24),
-    0 1px 2px rgba(67, 41, 24, 0.18);
+  color: var(--foreground);
 }
 
 .heroTitle span {
-  color: var(--color-taupe);
+  color: #ffffff;
   display: inline-block;
   font-weight: 900;
   
@@ -67,20 +64,17 @@
   font-size: 1.12rem;
   line-height: 1.7;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.96);
-  text-shadow:
-    0 2px 10px rgba(67, 41, 24, 0.2),
-    0 1px 2px rgba(67, 41, 24, 0.16);
+  color: var(--text-muted);
 }
 
 /* FRASE */
 .heroAccent {
   margin: 0.45rem 0 0 0;
   font-family: 'Pacifico', cursive;
-  font-size: clamp(1.9rem, 3vw, 2.65rem);
+  font-size: clamp(1.45rem, 2.4vw, 2.1rem);
   line-height: 1.2;
-  color: #7a674c;
-  
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 32rem;
 }
 
 /* BOTÓN */
@@ -108,7 +102,7 @@
 }
 
 .ctaBtn:hover {
-  background: var(--color-cream);
+  background: color-mix(in srgb, var(--color-almond) 78%, white);
   box-shadow:
     0 14px 28px rgba(122, 103, 76, 0.24),
     inset 0 1px 0 rgba(255, 255, 255, 0.54);
@@ -203,7 +197,7 @@
   }
 
   .heroAccent {
-    font-size: clamp(2rem, 2.4vw, 2.85rem);
+    font-size: clamp(1.6rem, 2vw, 2.25rem);
   }
 }
 
@@ -300,6 +294,6 @@
   }
 
   .heroAccent {
-    font-size: 1.7rem;
+    font-size: 1.45rem;
   }
 }

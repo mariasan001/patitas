@@ -91,7 +91,7 @@ export default function EspacioConocenosSection() {
             <div className={styles.photoGrid}>
               <div className={`${styles.photoCard} ${styles.photoMain}`}>
                 <Image
-                  src="/img/interior.png"
+                  src="/img/sitio_1.png"
                   alt="Interior de Patitas"
                   fill
                   className={styles.photo}
@@ -101,7 +101,7 @@ export default function EspacioConocenosSection() {
 
               <div className={`${styles.photoCard} ${styles.photoSmall}`}>
                 <Image
-                  src="/img/espacio_2.png"
+                  src="/img/sitio_2.png"
                   alt="Zona de atención en Patitas"
                   fill
                   className={styles.photo}
@@ -111,7 +111,7 @@ export default function EspacioConocenosSection() {
 
               <div className={`${styles.photoCard} ${styles.photoSmall}`}>
                 <Image
-                  src="/img/espacio3.png"
+                  src="/img/sitio_3.png"
                   alt="Espacio de cuidado en Patitas"
                   fill
                   className={styles.photo}
