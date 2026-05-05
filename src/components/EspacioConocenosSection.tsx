@@ -4,18 +4,35 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faHeart,
-  faPaw,
-    faArrowRight,
+  faArrowUpRightFromSquare,
+  faClock,
+  faLocationDot,
+  faShareNodes,
 } from '@fortawesome/free-solid-svg-icons';
+import { faFacebookF, faInstagram, faTiktok } from '@fortawesome/free-brands-svg-icons';
 import styles from '../styles/EspacioConocenosSection.module.css';
 
-export default function EspacioConocenosSection() {
-  const goToLlegar = () => {
-    const target = document.getElementById('llegar');
-    if (target) target.scrollIntoView({ behavior: 'smooth' });
-  };
+const MAPS_URL = 'https://maps.app.goo.gl/oPir31UghixCmMiy7';
 
+const socialLinks = [
+  {
+    label: 'TikTok',
+    icon: faTiktok,
+    href: 'https://www.tiktok.com/@patitas.spa.conde',
+  },
+  {
+    label: 'Instagram',
+    icon: faInstagram,
+    href: 'https://www.instagram.com/patitas_spa_condesa/',
+  },
+  {
+    label: 'Facebook',
+    icon: faFacebookF,
+    href: 'https://www.facebook.com/profile.php?id=61583550540949',
+  },
+] as const;
+
+export default function EspacioConocenosSection() {
   return (
     <section className={styles.section} id="espacio">
       <div className={styles.container}>
@@ -30,55 +47,67 @@ export default function EspacioConocenosSection() {
             <span className={styles.kicker}>Conócenos</span>
 
             <h2 className={styles.title}>
-              Un espacio creado para
-              <span> su bienestar y tu tranquilidad</span>
+              Visítanos en
+              <span> Hipódromo Condesa</span>
             </h2>
 
             <p className={styles.description}>
-              En Patitas cuidamos cada detalle para que tu mascota viva una
-              experiencia tranquila, segura y amorosa. Queremos que desde el
-              momento en que llegan, ambos sientan confianza, calma y mucho
-              cariño.
+              Un espacio cálido para cuidar a tu mascota con calma, higiene y
+              atención cercana. Aquí encuentras lo esencial para planear tu visita.
             </p>
 
             <div className={styles.featureList}>
               <div className={styles.featureItem}>
                 <span className={styles.featureIconWrap}>
-                  <FontAwesomeIcon icon={faHeart} className={styles.featureIcon} />
+                  <FontAwesomeIcon icon={faClock} className={styles.featureIcon} />
                 </span>
                 <div>
-                  <h3>Atención cercana</h3>
-                  <p>Tratamos a cada peludito con paciencia, ternura y respeto.</p>
+                  <h3>Horarios</h3>
+                  <p>Lunes a sábado: 9:00 am - 5:00 pm</p>
+                  <p>Domingo: 9:00 am - 4:00 pm</p>
                 </div>
               </div>
 
               <div className={styles.featureItem}>
                 <span className={styles.featureIconWrap}>
-                  <FontAwesomeIcon icon={faHeart} className={styles.featureIcon} />
+                  <FontAwesomeIcon icon={faLocationDot} className={styles.featureIcon} />
                 </span>
                 <div>
-                  <h3>Espacios limpios y cuidados</h3>
-                  <p>Un entorno pensado para transmitir comodidad y confianza.</p>
+                  <h3>Ubicación</h3>
+                  <p>Av Nuevo León 217, Hipódromo Condesa</p>
                 </div>
               </div>
 
               <div className={styles.featureItem}>
                 <span className={styles.featureIconWrap}>
-                  <FontAwesomeIcon icon={faPaw} className={styles.featureIcon} />
+                  <FontAwesomeIcon icon={faShareNodes} className={styles.featureIcon} />
                 </span>
                 <div>
-                  <h3>Ambiente tranquilo</h3>
-                  <p>Diseñado para que cada visita se sienta más amable y relajada.</p>
+                  <h3>Síguenos</h3>
+                  <div className={styles.socialLinks} aria-label="Redes sociales de Patitas">
+                    {socialLinks.map((social) => (
+                      <a
+                        key={social.label}
+                        href={social.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={styles.socialLink}
+                        aria-label={social.label}
+                      >
+                        <FontAwesomeIcon icon={social.icon} />
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
 
-            <button type="button" className={styles.ctaBtn} onClick={goToLlegar}>
-              <span className={styles.ctaText}>Ver ubicación</span>
+            <a href={MAPS_URL} target="_blank" rel="noreferrer" className={styles.ctaBtn}>
+              <span className={styles.ctaText}>Ver en Google Maps</span>
               <span className={styles.ctaIconWrap}>
-                <FontAwesomeIcon icon={faArrowRight} className={styles.ctaIcon} />
+                <FontAwesomeIcon icon={faArrowUpRightFromSquare} className={styles.ctaIcon} />
               </span>
-            </button>
+            </a>
           </motion.div>
 
           <motion.div

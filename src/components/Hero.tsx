@@ -4,12 +4,10 @@ import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaw } from '@fortawesome/free-solid-svg-icons';
 import styles from "../styles/Hero.module.css";
+import { useAgendaModal } from './FloatingAgendaButton';
 
 export default function Hero() {
-  const goToAgenda = () => {
-    const agenda = document.getElementById("agenda");
-    if (agenda) agenda.scrollIntoView({ behavior: "smooth" });
-  };
+  const { openAgenda } = useAgendaModal();
 
   return (
     <section className={styles.hero} id="hero">
@@ -53,7 +51,7 @@ export default function Hero() {
           <motion.button
             type="button"
             className={styles.ctaBtn}
-            onClick={goToAgenda}
+            onClick={openAgenda}
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.38 }}

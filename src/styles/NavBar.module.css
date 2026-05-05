@@ -160,6 +160,7 @@
   padding: 0.36rem 0.42rem 0.36rem 1rem;
   min-height: 48px;
 
+  font: inherit;
   font-weight: 700;
   box-shadow:
     0 8px 18px rgba(122, 103, 76, 0.16),

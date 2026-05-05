@@ -8,6 +8,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import { useAgendaModal } from './FloatingAgendaButton';
 
 config.autoAddCss = false;
 
@@ -24,6 +25,7 @@ export default function NavBar() {
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('#hero');
   const [scrolled, setScrolled] = useState(false);
+  const { openAgenda } = useAgendaModal();
 
   const sectionIds = useMemo(() => NAV_ITEMS.map((item) => item.id), []);
 
@@ -86,6 +88,11 @@ export default function NavBar() {
     setOpen(false);
   };
 
+  const handleAgenda = () => {
+    openAgenda();
+    setOpen(false);
+  };
+
   return (
     <>
       <motion.div
@@ -142,19 +149,16 @@ export default function NavBar() {
           </div>
 
           <div className={styles.rightSide}>
-            <a
-              href="#agenda"
+            <button
+              type="button"
               className={styles.ctaBtn}
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavigate('#agenda');
-              }}
+              onClick={handleAgenda}
             >
               <span className={styles.ctaText}>Agendar</span>
               <span className={styles.ctaIconWrap}>
                 <FontAwesomeIcon icon={faPaw} />
               </span>
-            </a>
+            </button>
 
             <button
               type="button"
@@ -231,19 +235,16 @@ export default function NavBar() {
                 })}
               </ul>
 
-              <a
-                href="#agenda"
+              <button
+                type="button"
                 className={styles.ctaBtnMobile}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavigate('#agenda');
-                }}
+                onClick={handleAgenda}
               >
                 <span className={styles.ctaText}>Agendar</span>
                 <span className={styles.ctaIconWrap}>
                   <FontAwesomeIcon icon={faPaw} />
                 </span>
-              </a>
+              </button>
             </motion.aside>
           </>
         )}

@@ -7,12 +7,13 @@ import Hero from '../components/Hero';
 import ServiciosSection from '../components/ServiciosSection';
 import PromesaAgendaSection from '../components/PromesaAgendaSection';
 import EspacioConocenosSection from '../components/EspacioConocenosSection';
+import { AgendaProvider } from '../components/FloatingAgendaButton';
 
 export default function Home() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <>
+    <AgendaProvider>
       <NavBar />
       <Hero />
 
@@ -53,6 +54,7 @@ export default function Home() {
           </div>
         </footer>
       </main>
-    </>
+
+    </AgendaProvider>
   );
 }
