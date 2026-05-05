@@ -1,11 +1,12 @@
 'use client';
 
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faPaw } from '@fortawesome/free-solid-svg-icons';
 import styles from '../styles/PromesaAgendaSection.module.css';
 import { useAgendaModal } from './FloatingAgendaButton';
+import { createMotionPresets, revealViewport } from '@/lib/motionPresets';
 
 const promisePoints = [
   {
@@ -27,6 +28,8 @@ const promisePoints = [
 
 export default function PromesaAgendaSection() {
   const { openAgenda } = useAgendaModal();
+  const shouldReduceMotion = useReducedMotion();
+  const motionPresets = createMotionPresets(shouldReduceMotion);
 
   return (
     <section className={styles.section} id="promesa">
@@ -35,51 +38,50 @@ export default function PromesaAgendaSection() {
       <div className={styles.container}>
         <motion.div
           className={styles.content}
-          initial={{ opacity: 0, y: 26 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.25 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
+          variants={motionPresets.staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={revealViewport}
         >
-          <motion.div
-            className={styles.visualSide}
-            initial={{ opacity: 0, x: -24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
-            transition={{ duration: 0.65, ease: 'easeOut', delay: 0.08 }}
-          >
+          <motion.div className={styles.visualSide} variants={motionPresets.cardReveal}>
             <div className={styles.imageCard}>
               <Image
-                src="/img/img_2.png"
-                alt="Mascota recibiendo cuidados en Patitas"
+                src="/img/img_2.webp"
+                alt="Spa para mascotas en Hipódromo Condesa"
                 fill
                 className={styles.image}
                 sizes="(max-width: 980px) 100vw, 42vw"
-                priority={false}
               />
             </div>
           </motion.div>
 
-          <div className={styles.copySide}>
-            <span className={styles.kicker}>Nuestra promesa</span>
+          <motion.div className={styles.copySide} variants={motionPresets.fadeUp}>
+            <motion.span className={styles.kicker} variants={motionPresets.fadeUp}>
+              Nuestra promesa
+            </motion.span>
 
-            <h2 className={styles.title}>
+            <motion.h2 className={styles.title} variants={motionPresets.fadeUp}>
               Cuidado responsable,
               <span> cariño real</span>
-            </h2>
+            </motion.h2>
 
-            <p className={styles.description}>
+            <motion.p className={styles.description} variants={motionPresets.fadeUp}>
               Sabemos que tu mascota es parte de tu familia. Por eso cada
               servicio se realiza con calma, higiene y atención a lo que necesita.
-            </p>
+            </motion.p>
 
-            <p className={styles.productNote}>
+            <motion.p className={styles.productNote} variants={motionPresets.fadeUp}>
               Trabajamos con productos especializados como Uiixol para ofrecer un
               cuidado seguro, efectivo y adecuado para su piel y pelaje 🐾
-            </p>
+            </motion.p>
 
-            <div className={styles.promiseList}>
+            <motion.div className={styles.promiseList} variants={motionPresets.staggerContainer}>
               {promisePoints.map((point) => (
-                <div key={point.title} className={styles.promiseItem}>
+                <motion.div
+                  key={point.title}
+                  className={styles.promiseItem}
+                  variants={motionPresets.cardReveal}
+                >
                   <span className={styles.promiseIconWrap} aria-hidden="true">
                     <FontAwesomeIcon icon={point.icon} className={styles.promiseIcon} />
                   </span>
@@ -87,21 +89,24 @@ export default function PromesaAgendaSection() {
                     <h3>{point.title}</h3>
                     <p>{point.text}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
 
-            <button
+            <motion.button
               type="button"
               className={styles.ctaBtn}
               onClick={openAgenda}
+              variants={motionPresets.scaleSoft}
+              whileHover={shouldReduceMotion ? undefined : { y: -2 }}
+              whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
             >
               <span className={styles.ctaText}>Agendar cita</span>
               <span className={styles.ctaIconWrap}>
                 <FontAwesomeIcon icon={faPaw} className={styles.ctaIcon} />
               </span>
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
         </motion.div>
       </div>
     </section>

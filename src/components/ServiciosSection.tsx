@@ -8,7 +8,8 @@ import {
   faScissors,
   faWandSparkles,
 } from '@fortawesome/free-solid-svg-icons';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
+import { createMotionPresets, revealViewport } from '@/lib/motionPresets';
 
 const services = [
   {
@@ -52,15 +53,18 @@ const getWhatsAppUrl = (message: string) =>
   `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`;
 
 export default function ServiciosSection() {
+  const shouldReduceMotion = useReducedMotion();
+  const motionPresets = createMotionPresets(shouldReduceMotion);
+
   return (
     <section className={styles.section} id="servicios">
       <div className={styles.container}>
         <motion.div
           className={styles.headingBlock}
-          initial={{ opacity: 0, y: 26 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.35 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
+          variants={motionPresets.sectionReveal}
+          initial="hidden"
+          whileInView="visible"
+          viewport={revealViewport}
         >
           <span className={styles.kicker}>Experiencias para tu peludito</span>
           <h2 className={styles.title}>
@@ -73,20 +77,19 @@ export default function ServiciosSection() {
           </p>
         </motion.div>
 
-        <div className={styles.grid}>
-          {services.map((service, index) => (
+        <motion.div
+          className={styles.grid}
+          variants={motionPresets.staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={revealViewport}
+        >
+          {services.map((service) => (
             <motion.article
               key={service.title}
               className={`${styles.card} ${styles[`card${service.tone.charAt(0).toUpperCase() + service.tone.slice(1)}`]}`}
-              initial={{ opacity: 0, y: 30, scale: 0.97 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, amount: 0.25 }}
-              transition={{
-                duration: 0.55,
-                delay: index * 0.08,
-                ease: 'easeOut',
-              }}
-              whileHover={{ y: -6 }}
+              variants={motionPresets.cardReveal}
+              whileHover={shouldReduceMotion ? undefined : { y: -6 }}
             >
               <div className={styles.cardTop}>
                 <span className={styles.badge}>{service.badge}</span>
@@ -112,7 +115,7 @@ export default function ServiciosSection() {
               <a
                 href={getWhatsAppUrl(service.whatsappMessage)}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className={styles.ctaBtn}
                 aria-label={`Solicitar más detalles de ${service.title} por WhatsApp`}
               >
@@ -123,7 +126,7 @@ export default function ServiciosSection() {
               </a>
             </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

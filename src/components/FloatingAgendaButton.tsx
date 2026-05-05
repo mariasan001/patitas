@@ -140,7 +140,7 @@ function FloatingAgendaButton({
           </div>
 
           <form className={styles.form} onSubmit={handleSubmit} noValidate>
-            <div className={styles.row}>
+            <div className={`${styles.row} ${styles.petRow}`}>
               <label className={styles.field}>
                 <span>Mascota</span>
                 <input
@@ -165,7 +165,7 @@ function FloatingAgendaButton({
               </label>
             </div>
 
-            <div className={styles.row}>
+            <div className={`${styles.row} ${styles.serviceRow}`}>
               <label className={styles.field}>
                 <span>Servicio</span>
                 <select
@@ -191,7 +191,7 @@ function FloatingAgendaButton({
               </label>
             </div>
 
-            <div className={styles.row}>
+            <div className={`${styles.row} ${styles.dateRow}`}>
               <label className={styles.field}>
                 <span>Día</span>
                 <input

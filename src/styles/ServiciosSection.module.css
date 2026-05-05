@@ -14,7 +14,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url('/img/servicios_fondo_web.png');
+  background-image: url('/img/servicios_fondo_web.webp');
   background-repeat: no-repeat;
   background-position: center 9.5rem;
   background-size: min(92vw, 1420px) auto;
@@ -54,32 +54,32 @@
   background: rgba(208, 169, 132, 0.18);
   color: var(--color-brown);
   border: 1px solid rgba(208, 169, 132, 0.34);
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  font-size: var(--text-label);
+  font-weight: var(--weight-label);
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
 }
 
 .title {
   margin: 0.9rem 0 0.7rem;
-  font-family: 'Quicksand', 'Poppins', Arial, sans-serif;
-  font-size: clamp(1.9rem, 3.6vw, 3rem);
-  line-height: 1;
-  letter-spacing: -0.05em;
-  font-weight: 600;
+  font-family: var(--font-quicksand), Arial, sans-serif;
+  font-size: var(--text-h2);
+  line-height: var(--leading-title);
+  letter-spacing: var(--tracking-title);
+  font-weight: var(--weight-title);
   color: var(--foreground);
 }
 
 .title span {
   color: var(--color-taupe);
-  font-weight: 900;
+  font-weight: var(--weight-accent);
   font-size: 1.14em;
 }
 
 .subtitle {
   margin: 0;
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
   color: var(--text-muted);
 }
 
@@ -180,7 +180,7 @@
   min-height: 34px;
   padding: 0 0.95rem;
   border-radius: 999px;
-  font-size: 0.75rem;
+  font-size: var(--text-label);
   line-height: 1;
   white-space: nowrap;
   font-weight: 700;
@@ -214,17 +214,17 @@
 }
 
 .cardTitle {
-  font-size: 1.55rem;
+  font-size: var(--text-card-title);
   line-height: 1.05;
-  font-weight: 800;
+  font-weight: var(--weight-title);
   color: var(--foreground);
 }
 
 .cardDescription {
   margin: 0;
-  font-size: 0.97rem;
+  font-size: var(--text-small);
   color: var(--text-soft);
-  line-height: 1.65;
+  line-height: var(--leading-compact);
 }
 
 .cardMeta {
@@ -243,7 +243,7 @@
   background: rgba(255, 255, 255, 0.68);
   border: 1px solid rgba(67, 41, 24, 0.08);
   color: var(--text-soft);
-  font-size: 0.78rem;
+  font-size: var(--text-chip);
   font-weight: 700;
   line-height: 1;
 }
@@ -294,8 +294,8 @@
 }
 
 .ctaText {
-  font-size: 0.95rem;
-  font-weight: 800;
+  font-size: var(--text-cta);
+  font-weight: var(--weight-label);
 }
 
 .ctaIconWrap {
@@ -339,13 +339,12 @@
 
 @media (max-width: 768px) {
   .section {
-    padding: 1rem 0 8rem;
+    margin-top: -8rem;
+    padding: 0.25rem 0 8rem;
   }
 
   .section::before {
-    background-position: center calc(100% + 1rem);
-    background-size: 165% auto;
-    opacity: 0.3;
+    display: none;
   }
 
   .container {
@@ -367,7 +366,25 @@
   }
 
   .cardTitle {
-    font-size: 1.35rem;
+    font-size: var(--text-card-title);
+  }
+
+  .cardMeta {
+    gap: 0.45rem;
+    margin-top: 0.1rem;
+  }
+
+  .metaPill {
+    min-height: 30px;
+    padding: 0.4rem 0.68rem;
+    font-size: var(--text-chip);
+    background: rgba(255, 251, 247, 0.82);
+  }
+
+  .metaPill::before {
+    width: 5px;
+    height: 5px;
+    margin-right: 0.38rem;
   }
 
   .ctaBtn {
@@ -377,8 +394,12 @@
 }
 
 @media (max-width: 480px) {
+  .section {
+    margin-top: -10rem;
+  }
+
   .title {
-    font-size: 1.8rem;
+    font-size: var(--text-h2);
   }
 
   .cardTop {
@@ -389,9 +410,5 @@
     width: 50px;
     height: 50px;
     flex-basis: 50px;
-  }
-
-  .metaPill {
-    width: 100%;
   }
 }

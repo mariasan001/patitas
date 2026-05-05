@@ -1,62 +1,66 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaw } from '@fortawesome/free-solid-svg-icons';
 import styles from "../styles/Hero.module.css";
 import { useAgendaModal } from './FloatingAgendaButton';
+import { createMotionPresets } from '@/lib/motionPresets';
+
+const heroTags = ['Relax', 'Amor', 'Cuidado', 'Premium'];
 
 export default function Hero() {
   const { openAgenda } = useAgendaModal();
+  const shouldReduceMotion = useReducedMotion();
+  const motionPresets = createMotionPresets(shouldReduceMotion);
 
   return (
-    <section className={styles.hero} id="hero">
+    <motion.section
+      className={styles.hero}
+      id="inicio"
+      initial={shouldReduceMotion ? false : { opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+    >
       <div className={styles.heroContent}>
         <motion.div
           className={styles.heroTextBlock}
-          initial={{ opacity: 0, y: 34 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          variants={motionPresets.staggerContainer}
+          initial="hidden"
+          animate="visible"
         >
-          <motion.h1
-            className={styles.heroTitle}
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.08 }}
-          >
+          <motion.span className={styles.heroEyebrow} variants={motionPresets.fadeUp}>
+            Spa y bienestar para mascotas
+          </motion.span>
+
+          <motion.h1 className={styles.heroTitle} variants={motionPresets.fadeUp}>
             Bienvenidos a <span>Patitas</span>
           </motion.h1>
 
-          <motion.p
-            className={styles.heroSubtitle}
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.18 }}
-          >
-            Spa y bienestar para tu mascota.
-            <br />
-            Para consentir a quienes más amas. Aquí cada peludito vive una experiencia
-            de tranquilidad, cariño y bienestar total.
+          <motion.p className={styles.heroSubtitle} variants={motionPresets.fadeUp}>
+            Cuidado cálido, baño y grooming para consentir a quienes más amas
+            con una experiencia tranquila, segura y llena de cariño.
           </motion.p>
 
-          <motion.p
-            className={styles.heroAccent}
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.28 }}
+          <motion.ul
+            className={styles.heroTags}
+            aria-label="Beneficios principales de Patitas"
+            variants={motionPresets.staggerContainer}
           >
-            Relax, amor y cuidado premium
-          </motion.p>
+            {heroTags.map((tag) => (
+              <motion.li key={tag} variants={motionPresets.scaleSoft}>
+                {tag}
+              </motion.li>
+            ))}
+          </motion.ul>
 
           <motion.button
             type="button"
             className={styles.ctaBtn}
             onClick={openAgenda}
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.38 }}
-            whileHover={{ y: -2 }}
-            whileTap={{ scale: 0.985 }}
+            variants={motionPresets.scaleSoft}
+            whileHover={shouldReduceMotion ? undefined : { y: -2 }}
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
           >
             <span className={styles.ctaText}>Agenda tu cita</span>
 
@@ -66,6 +70,6 @@ export default function Hero() {
           </motion.button>
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }
