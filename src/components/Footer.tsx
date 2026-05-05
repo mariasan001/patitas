@@ -24,8 +24,8 @@ export default function Footer() {
             <Image
               src="/img/logo_patitas.webp"
               alt="Patitas Spa Condesa"
-              width={110}
-              height={56}
+              width={148}
+              height={75}
               className={styles.footerKickerLogo}
             />
           </motion.div>

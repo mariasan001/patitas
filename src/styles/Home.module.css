@@ -29,19 +29,22 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 0.45rem;
 }
 
 .footerKickerLogo {
-  width: auto;
+  width: 148px;
+  max-width: 32vw;
   height: auto;
+  max-height: 75px;
   object-fit: contain;
 }
 
 .footerTitle {
-  margin: 1rem 0 0.9rem;
+  margin: 0.75rem 0 0.85rem;
   font-family: var(--font-quicksand), Arial, sans-serif;
-  font-size: var(--text-h2);
-  line-height: var(--leading-title);
+  font-size: clamp(1.55rem, 2.6vw, 2.35rem);
+  line-height: 1.14;
   letter-spacing: var(--tracking-title);
   font-weight: var(--weight-title);
   color: var(--foreground);
@@ -103,8 +106,15 @@
 }
 
 @media (max-width: 480px) {
+  .footerKickerLogo {
+    width: 118px;
+    max-width: 46vw;
+    max-height: 60px;
+  }
+
   .footerTitle {
-    font-size: var(--text-h2);
+    font-size: 1.48rem;
+    line-height: 1.18;
   }
 
   .footerCopy {

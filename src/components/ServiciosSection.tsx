@@ -47,7 +47,7 @@ const services = [
   },
 ] as const;
 
-const WHATSAPP_PHONE = '527292324754';
+const WHATSAPP_PHONE = '525625642593';
 
 const getWhatsAppUrl = (message: string) =>
   `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`;

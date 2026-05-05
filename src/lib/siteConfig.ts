@@ -13,7 +13,7 @@ export const siteConfig = {
     'baño perros condesa',
     'estética canina CDMX',
   ],
-  phone: '+527292324754',
+  phone: '+525625642593',
   address: {
     streetAddress: 'Av Nuevo León 217',
     addressLocality: 'Hipódromo Condesa',
