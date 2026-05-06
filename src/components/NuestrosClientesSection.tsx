@@ -90,6 +90,7 @@ export default function NuestrosClientesSection() {
   const shouldReduceMotion = useReducedMotion();
   const motionPresets = createMotionPresets(shouldReduceMotion);
   const cardRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const shouldSyncRailRef = useRef(false);
 
   useEffect(() => {
     if (!activeMoment) return;
@@ -110,6 +111,8 @@ export default function NuestrosClientesSection() {
   }, [activeMoment]);
 
   useEffect(() => {
+    if (!shouldSyncRailRef.current) return;
+
     const activeCard = cardRefs.current[selectedIndex];
     if (!activeCard) return;
 
@@ -181,11 +184,18 @@ export default function NuestrosClientesSection() {
                 type="button"
                 className={`${styles.card} ${styles[`card${moment.variant.charAt(0).toUpperCase() + moment.variant.slice(1)}`]} ${index === 0 ? styles.cardFirst : ''} ${selectedIndex === index ? styles.cardSelected : styles.cardMuted}`}
                 onClick={() => {
+                  shouldSyncRailRef.current = true;
                   setSelectedIndex(index);
                   setActiveMoment(moment);
                 }}
-                onMouseEnter={() => setSelectedIndex(index)}
-                onFocus={() => setSelectedIndex(index)}
+                onMouseEnter={() => {
+                  shouldSyncRailRef.current = true;
+                  setSelectedIndex(index);
+                }}
+                onFocus={() => {
+                  shouldSyncRailRef.current = true;
+                  setSelectedIndex(index);
+                }}
                 aria-label={`Abrir ${moment.type === 'video' ? 'video' : 'imagen'}: ${moment.alt}`}
                 aria-pressed={selectedIndex === index}
                 variants={motionPresets.cardReveal}
