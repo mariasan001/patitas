@@ -66,13 +66,13 @@ export default function PromesaAgendaSection() {
             </motion.h2>
 
             <motion.p className={styles.description} variants={motionPresets.fadeUp}>
-              Sabemos que tu mascota es parte de tu familia. Por eso cada
-              servicio se realiza con calma, higiene y atención a lo que necesita.
+              Sabemos que tu mascota es parte de tu familia. Por eso cada servicio
+              se realiza con calma, higiene y atención a lo que necesita.
             </motion.p>
 
             <motion.p className={styles.productNote} variants={motionPresets.fadeUp}>
               Trabajamos con productos especializados como Uiixol para ofrecer un
-              cuidado seguro, efectivo y adecuado para su piel y pelaje 🐾
+              cuidado seguro, efectivo y adecuado para su piel y pelaje.
             </motion.p>
 
             <motion.div className={styles.promiseList} variants={motionPresets.staggerContainer}>

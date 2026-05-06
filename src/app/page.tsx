@@ -3,6 +3,7 @@ import NavBar from '../components/NavBar';
 import Hero from '../components/Hero';
 import ServiciosSection from '../components/ServiciosSection';
 import PromesaAgendaSection from '../components/PromesaAgendaSection';
+import NuestrosClientesSection from '../components/NuestrosClientesSection';
 import EspacioConocenosSection from '../components/EspacioConocenosSection';
 import Footer from '../components/Footer';
 import { AgendaProvider } from '../components/FloatingAgendaButton';
@@ -41,6 +42,7 @@ export default function Home() {
       <main className={styles.main}>
         <ServiciosSection />
         <PromesaAgendaSection />
+        <NuestrosClientesSection />
         <EspacioConocenosSection />
       </main>
 

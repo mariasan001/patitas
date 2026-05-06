@@ -17,8 +17,9 @@ const NAV_ITEMS = [
   { label: 'Inicio', href: '#inicio', id: 'inicio' },
   { label: 'Servicios', href: '#servicios', id: 'servicios' },
   { label: 'Nuestra promesa', href: '#promesa', id: 'promesa' },
-  { label: 'Conócenos', href: '#conocenos', id: 'conocenos' },
-];
+  { label: 'Peluditos felices', href: '#clientes', id: 'clientes' },
+  { label: 'Conocenos', href: '#conocenos', id: 'conocenos' },
+] as const;
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
@@ -118,7 +119,7 @@ export default function NavBar() {
       >
         <nav
           className={`${styles.navbar} ${scrolled ? styles.navbarScrolled : ''}`}
-          aria-label="Navegación principal"
+          aria-label="Navegacion principal"
         >
           <div className={styles.leftSide}>
             <button
@@ -155,7 +156,11 @@ export default function NavBar() {
                         <motion.span
                           layoutId="desktop-active-pill"
                           className={styles.activePill}
-                          transition={shouldReduceMotion ? { duration: 0 } : { type: 'spring', stiffness: 380, damping: 32 }}
+                          transition={
+                            shouldReduceMotion
+                              ? { duration: 0 }
+                              : { type: 'spring', stiffness: 380, damping: 32 }
+                          }
                         />
                       )}
                       <span className={styles.menuLinkLabel}>{item.label}</span>
@@ -182,7 +187,7 @@ export default function NavBar() {
               type="button"
               className={styles.menuIcon}
               onClick={() => setOpen(!open)}
-              aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
+              aria-label={open ? 'Cerrar menu' : 'Abrir menu'}
               aria-expanded={open}
             >
               <FontAwesomeIcon icon={open ? faXmark : faBars} />
@@ -198,7 +203,7 @@ export default function NavBar() {
               type="button"
               className={styles.overlay}
               onClick={() => setOpen(false)}
-              aria-label="Cerrar menú"
+              aria-label="Cerrar menu"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -230,7 +235,7 @@ export default function NavBar() {
                   type="button"
                   className={styles.mobileCloseBtn}
                   onClick={() => setOpen(false)}
-                  aria-label="Cerrar menú"
+                  aria-label="Cerrar menu"
                 >
                   <FontAwesomeIcon icon={faXmark} />
                 </button>

@@ -21,7 +21,7 @@ const services = [
     badge: 'Cuidado suave',
     tone: 'rose',
     highlights: ['Baño relajante', 'Limpieza de oídos', 'Corte de uñas'],
-    whatsappMessage: 'Hola, me gustaría saber más sobre el servicio de baño 🐾',
+    whatsappMessage: 'Hola, me gustaría saber más sobre el servicio de baño.',
   },
   {
     title: 'Grooming',
@@ -32,7 +32,7 @@ const services = [
     badge: 'Look cuidado',
     tone: 'gold',
     highlights: ['Corte personalizado', 'Cepillado', 'Acabado limpio'],
-    whatsappMessage: 'Hola, me gustaría saber más sobre el servicio de corte ✂️',
+    whatsappMessage: 'Hola, me gustaría saber más sobre el servicio de corte.',
   },
   {
     title: 'Servicios extras',
@@ -43,7 +43,7 @@ const services = [
     badge: 'Toque extra',
     tone: 'brown',
     highlights: ['Hidratación', 'Cepillado extra', 'Cuidado puntual'],
-    whatsappMessage: 'Hola, me gustaría saber más sobre los servicios extras 🐶',
+    whatsappMessage: 'Hola, me gustaría saber más sobre los servicios extras.',
   },
 ] as const;
 

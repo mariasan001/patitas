@@ -99,7 +99,7 @@ function FloatingAgendaButton({
     }
 
     const message = [
-      'Hola Patitas Spa, quiero agendar una cita 🐾',
+      'Hola Patitas Spa, quiero agendar una cita.',
       '',
       `Nombre de mi mascota: ${form.petName.trim()}`,
       `Tipo de mascota: ${form.petType}`,

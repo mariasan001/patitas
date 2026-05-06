@@ -3,7 +3,7 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaw } from '@fortawesome/free-solid-svg-icons';
-import styles from "../styles/Hero.module.css";
+import styles from '../styles/Hero.module.css';
 import { useAgendaModal } from './FloatingAgendaButton';
 import { createMotionPresets } from '@/lib/motionPresets';
 
@@ -38,8 +38,8 @@ export default function Hero() {
           </motion.h1>
 
           <motion.p className={styles.heroSubtitle} variants={motionPresets.fadeUp}>
-            Cuidado cálido, baño y grooming para consentir a quienes más amas
-            con una experiencia tranquila, segura y llena de cariño.
+            Cuidado cálido, baño y grooming para consentir a quienes más amas con
+            una experiencia tranquila, segura y llena de cariño.
           </motion.p>
 
           <motion.ul

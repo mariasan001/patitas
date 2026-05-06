@@ -12,14 +12,16 @@ export const siteConfig = {
     'grooming condesa',
     'baño perros condesa',
     'estética canina CDMX',
+    'grooming hipódromo condesa',
+    'spa para perros hipódromo condesa',
   ],
   phone: '+525625642593',
   address: {
-    streetAddress: 'Av Nuevo León 217',
+    streetAddress: 'Av. Nuevo León 217',
     addressLocality: 'Hipódromo Condesa',
     addressCountry: 'MX',
   },
-  image: '/img/logo_patitas.webp',
+  image: '/img/patitas-og.jpg',
   socialLinks: [
     'https://www.instagram.com/patitas_spa_condesa/',
     'https://www.facebook.com/profile.php?id=61583550540949',

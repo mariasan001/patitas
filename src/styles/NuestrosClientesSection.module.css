@@ -1,0 +1,565 @@
+.section {
+  position: relative;
+  padding: 5.8rem 0;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(223, 178, 174, 0.18), transparent 22%),
+    radial-gradient(circle at 84% 82%, rgba(208, 169, 132, 0.16), transparent 24%),
+    linear-gradient(180deg, rgba(255, 251, 247, 0.9) 0%, rgba(239, 231, 222, 0.3) 100%);
+  overflow: hidden;
+}
+
+.section::before,
+.section::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 18vw;
+  min-width: 90px;
+  background: linear-gradient(90deg, rgba(250, 247, 243, 0.92) 0%, rgba(250, 247, 243, 0) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.section::after {
+  inset: 0 0 0 auto;
+  background: linear-gradient(270deg, rgba(250, 247, 243, 0.92) 0%, rgba(250, 247, 243, 0) 100%);
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
+  gap: 1.2rem;
+  align-items: end;
+  margin-bottom: 1.35rem;
+}
+
+.headerCopy {
+  max-width: 760px;
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  background: rgba(223, 178, 174, 0.18);
+  color: var(--color-brown);
+  border: 1px solid rgba(223, 178, 174, 0.32);
+  font-size: var(--text-label);
+  font-weight: var(--weight-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 1rem 0 0.8rem;
+  font-family: var(--font-quicksand), Arial, sans-serif;
+  font-size: clamp(2.5rem, 4.1vw, 4.15rem);
+  line-height: 0.94;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  color: var(--foreground);
+}
+
+.title span {
+  display: block;
+  color: var(--color-rose);
+  font-weight: 900;
+}
+
+.subtitle {
+  margin: 0;
+  max-width: 640px;
+  font-size: var(--text-body);
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+
+.headerMeta {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.metaCard {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 0.85rem;
+  align-items: start;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 1.5rem;
+  background: transparent;
+  border: 1px solid rgba(223, 178, 174, 0.18);
+}
+
+.metaIcon {
+  width: 52px;
+  height: 52px;
+  border-radius: 1rem;
+  background: rgba(223, 178, 174, 0.2);
+  color: var(--color-rose);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.metaCard strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--foreground);
+  font-size: 0.98rem;
+  font-weight: 800;
+}
+
+.metaCard p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: var(--text-small);
+  line-height: 1.55;
+}
+
+.deckWrap {
+  position: relative;
+}
+
+.deckIntro {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.deckChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 34px;
+  padding: 0.42rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(67, 41, 24, 0.08);
+  color: var(--color-brown);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.cardRail {
+  display: flex;
+  align-items: stretch;
+  gap: 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.25rem 0.3rem 0.7rem;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+}
+
+.cardRail::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  position: relative;
+  flex: 0 0 auto;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  scroll-snap-align: start;
+  text-align: left;
+  transition:
+    opacity 0.24s ease,
+    filter 0.24s ease,
+    transform 0.24s ease;
+}
+
+.card:focus-visible {
+  outline: 3px solid rgba(223, 178, 174, 0.34);
+  outline-offset: 5px;
+}
+
+.cardFirst,
+.cardFeature {
+  width: min(360px, 28vw);
+}
+
+.cardFeature {
+  width: min(360px, 28vw);
+}
+
+.cardStoryTall {
+  width: min(300px, 23vw);
+}
+
+.cardStory {
+  width: min(300px, 23vw);
+}
+
+.cardPortrait {
+  width: min(300px, 23vw);
+}
+
+.cardSquare {
+  width: min(300px, 23vw);
+}
+
+.cardLandscape {
+  width: min(300px, 23vw);
+}
+
+.mediaFrame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2rem;
+  background: rgba(255, 251, 247, 0.92);
+  box-shadow:
+    0 20px 40px rgba(67, 41, 24, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.86);
+  transition:
+    transform 0.24s ease,
+    box-shadow 0.24s ease,
+    filter 0.24s ease;
+}
+
+.cardSelected {
+  opacity: 1;
+  filter: grayscale(0);
+}
+
+.cardMuted {
+  opacity: 0.9;
+  filter: grayscale(0);
+}
+
+.card:hover .mediaFrame {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow:
+    0 28px 48px rgba(67, 41, 24, 0.13),
+    inset 0 1px 0 rgba(255, 255, 255, 0.86);
+  filter: saturate(1.04);
+}
+
+.cardMuted:hover,
+.cardMuted:focus-visible {
+  opacity: 1;
+  filter: grayscale(0);
+}
+
+.cardFeature .mediaFrame {
+  aspect-ratio: 4 / 5.2;
+}
+
+.cardStoryTall .mediaFrame {
+  aspect-ratio: 4 / 5.2;
+}
+
+.cardPortrait .mediaFrame {
+  aspect-ratio: 4 / 5.2;
+}
+
+.cardSquare .mediaFrame {
+  aspect-ratio: 4 / 5.2;
+}
+
+.cardStory .mediaFrame {
+  aspect-ratio: 4 / 5.2;
+}
+
+.cardLandscape .mediaFrame {
+  aspect-ratio: 4 / 5.2;
+}
+
+.media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mediaOverlay {
+  position: absolute;
+  inset: auto 0 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding: 0.75rem;
+  background: linear-gradient(180deg, rgba(67, 41, 24, 0.02) 0%, rgba(67, 41, 24, 0.74) 100%);
+}
+
+.overlayCopy {
+  display: grid;
+  gap: 0.22rem;
+  max-width: calc(100% - 52px);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 25px;
+  padding: 0.2rem 0.54rem;
+  border-radius: 999px;
+  background: rgba(255, 251, 247, 0.92);
+  color: var(--color-brown);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.overlayTitle {
+  margin: 0;
+  color: rgba(255, 251, 247, 0.96);
+  font-size: 0.86rem;
+  line-height: 1.32;
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+.overlayAction {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.playBadge,
+.viewBadge {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 251, 247, 0.94);
+  color: var(--color-brown);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.card:not(.cardFeature) .mediaOverlay {
+  padding-top: 1.1rem;
+}
+
+.card:not(.cardFeature) .overlayCopy {
+  max-width: max-content;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 240;
+  padding: 1.1rem;
+  background: rgba(67, 41, 24, 0.76);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 251, 247, 0.94);
+  color: var(--color-brown);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+}
+
+.lightboxCard {
+  width: min(94vw, 980px);
+  max-height: min(88dvh, 900px);
+  border-radius: 1.7rem;
+  overflow: hidden;
+  background: rgba(255, 251, 247, 0.97);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.24);
+}
+
+.lightboxMedia {
+  position: relative;
+  width: 100%;
+  height: min(74dvh, 760px);
+  background: rgba(67, 41, 24, 0.08);
+}
+
+.lightboxAsset {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.lightboxCopy {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1rem 1.1rem 1.15rem;
+}
+
+.lightboxTag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-height: 30px;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(223, 178, 174, 0.18);
+  color: var(--color-brown);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.lightboxCopy p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: var(--text-small);
+  line-height: var(--leading-compact);
+}
+
+@media (max-width: 1100px) {
+  .header {
+    grid-template-columns: 1fr;
+  }
+
+  .headerMeta {
+    justify-content: flex-start;
+  }
+
+  .cardFeature,
+  .cardStoryTall,
+  .cardPortrait,
+  .cardSquare,
+  .cardStory,
+  .cardLandscape {
+    width: min(290px, 36vw);
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 4.6rem 0;
+  }
+
+  .section::before,
+  .section::after {
+    display: none;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .title {
+    font-size: clamp(2.2rem, 8vw, 3.2rem);
+  }
+
+  .title span {
+    display: inline;
+  }
+
+  .subtitle {
+    font-size: var(--text-small);
+  }
+
+  .metaCard {
+    grid-template-columns: 44px 1fr;
+    padding: 0.9rem;
+  }
+
+  .metaIcon {
+    width: 44px;
+    height: 44px;
+    border-radius: 0.9rem;
+  }
+
+  .deckIntro {
+    margin-bottom: 0.7rem;
+  }
+
+  .cardRail {
+    grid-auto-columns: 74vw;
+    gap: 0.8rem;
+    padding-bottom: 0.4rem;
+  }
+
+  .cardFeature,
+  .cardStoryTall,
+  .cardPortrait,
+  .cardSquare,
+  .cardStory,
+  .cardLandscape {
+    width: 76vw;
+  }
+
+  .mediaFrame {
+    border-radius: 1.35rem;
+  }
+
+  .cardFeature .mediaFrame {
+    aspect-ratio: 4 / 5.2;
+  }
+
+  .overlayTitle {
+    font-size: 0.8rem;
+  }
+
+  .lightboxCard {
+    width: 94vw;
+    border-radius: 1.3rem;
+  }
+
+  .lightboxMedia {
+    height: 68dvh;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardFeature,
+  .cardStoryTall,
+  .cardPortrait,
+  .cardSquare,
+  .cardStory,
+  .cardLandscape {
+    width: 82vw;
+  }
+
+  .lightbox {
+    padding: 0.75rem;
+  }
+
+  .closeButton {
+    top: 0.8rem;
+    right: 0.8rem;
+  }
+
+  .lightboxMedia {
+    height: 62dvh;
+  }
+}

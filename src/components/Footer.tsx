@@ -42,9 +42,7 @@ export default function Footer() {
         </motion.div>
 
         <motion.div className={styles.footerBottom} variants={motionPresets.fadeUp}>
-          <p className={styles.footerCopy}>
-            © {currentYear} Patitas. Todos los derechos reservados.
-          </p>
+          <p className={styles.footerCopy}>© {currentYear} Patitas. Todos los derechos reservados.</p>
         </motion.div>
       </motion.div>
     </motion.footer>

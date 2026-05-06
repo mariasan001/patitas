@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
-import { Quicksand } from "next/font/google";
-import "./globals.css";
-import { absoluteUrl, siteConfig } from "@/lib/siteConfig";
+import type { Metadata } from 'next';
+import { Quicksand } from 'next/font/google';
+import './globals.css';
+import { absoluteUrl, siteConfig } from '@/lib/siteConfig';
 
 const quicksand = Quicksand({
-  variable: "--font-quicksand",
-  subsets: ["latin"],
+  variable: '--font-quicksand',
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
@@ -17,13 +17,13 @@ export const metadata: Metadata = {
   creator: siteConfig.name,
   publisher: siteConfig.name,
   applicationName: siteConfig.name,
-  category: "Pet grooming",
+  category: 'Pet grooming',
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "32x32" },
-      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+      { url: '/favicon.ico', sizes: '32x32' },
+      { url: '/icon.png', type: 'image/png', sizes: '512x512' },
     ],
-    apple: [{ url: "/apple-icon.png", sizes: "180x180" }],
+    apple: [{ url: '/apple-icon.png', sizes: '180x180' }],
   },
   alternates: {
     canonical: absoluteUrl(),
@@ -33,22 +33,27 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     url: absoluteUrl(),
     siteName: siteConfig.name,
-    type: "website",
-    locale: "es_MX",
+    type: 'website',
+    locale: 'es_MX',
     images: [
       {
         url: absoluteUrl(siteConfig.image),
         width: 1536,
         height: 1024,
-        alt: "Patitas Spa Condesa, baño y grooming para mascotas en CDMX",
+        alt: 'Patitas Spa Condesa, baño y grooming para mascotas en Hipódromo Condesa',
       },
     ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: 'summary_large_image',
     title: siteConfig.title,
     description: siteConfig.description,
-    images: [absoluteUrl(siteConfig.image)],
+    images: [
+      {
+        url: absoluteUrl(siteConfig.image),
+        alt: 'Patitas Spa Condesa, baño y grooming para mascotas en CDMX',
+      },
+    ],
   },
 };
 

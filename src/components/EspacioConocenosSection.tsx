@@ -102,7 +102,7 @@ export default function EspacioConocenosSection() {
                 </span>
                 <div>
                   <h3>Ubicación</h3>
-                  <p>Av Nuevo León 217, Hipódromo Condesa</p>
+                  <p>Av. Nuevo León 217, Hipódromo Condesa</p>
                 </div>
               </motion.div>
 
