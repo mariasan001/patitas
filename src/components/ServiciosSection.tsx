@@ -18,9 +18,9 @@ const services = [
       'Baño, limpieza y cuidados esenciales para que tu mascota salga fresca, tranquila y feliz.',
     buttonText: 'Solicitar más detalles',
     icon: faPumpSoap,
-    badge: 'Cuidado suave',
+    badge: 'Spa relajante',
     tone: 'rose',
-    highlights: ['Baño relajante', 'Limpieza de oídos', 'Corte de uñas'],
+    highlights: ['Baño relajante con romero', 'Spa de patitas', 'Limpieza de oídos'],
     whatsappMessage: 'Hola, me gustaría saber más sobre el servicio de baño.',
   },
   {
@@ -29,9 +29,9 @@ const services = [
       'Arreglo, corte y cepillado con atención paciente para cuidar su estilo y comodidad.',
     buttonText: 'Solicitar más detalles',
     icon: faScissors,
-    badge: 'Look cuidado',
+    badge: 'Grooming',
     tone: 'gold',
-    highlights: ['Corte personalizado', 'Cepillado', 'Acabado limpio'],
+    highlights: ['Corte personalizado', 'Cepillado', 'Deslanado'],
     whatsappMessage: 'Hola, me gustaría saber más sobre el servicio de corte.',
   },
   {
